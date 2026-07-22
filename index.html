@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Renz Ryan Avelino Santillana, Computer Science student, U.S. Navy veteran, and Field Service Technician.">
+  <title>Renz Santillana | Computer Science Portfolio</title>
+  <style>
+    :root {
+      --navy: #071526;
+      --navy-2: #0d2238;
+      --blue: #2f80ed;
+      --cyan: #56ccf2;
+      --white: #ffffff;
+      --off-white: #f5f8fc;
+      --text: #162235;
+      --muted: #5d6b7c;
+      --border: #dbe5ef;
+      --card: #ffffff;
+      --shadow: 0 18px 45px rgba(8, 28, 52, 0.10);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--off-white);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 21, 38, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      min-height: 68px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: .04em;
+      font-size: 1.05rem;
+    }
+
+    .brand span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #dbe9f7;
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(86,204,242,.22), transparent 28%),
+        linear-gradient(135deg, var(--navy), var(--navy-2));
+      color: var(--white);
+      padding: 7rem 0 6rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      color: var(--cyan);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: .82rem;
+      letter-spacing: .13em;
+      margin-bottom: 1.2rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--cyan);
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 5.3rem);
+      line-height: 1.02;
+      letter-spacing: -.045em;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 span {
+      color: var(--cyan);
+    }
+
+    .hero-copy {
+      color: #cfdeec;
+      max-width: 720px;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: .85rem 1.35rem;
+      font-weight: 800;
+      border: 2px solid transparent;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #1f6fd4;
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,.35);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 24px;
+      padding: 1.6rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,.22);
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      margin-bottom: .8rem;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .hero-card ul {
+      list-style: none;
+      display: grid;
+      gap: .8rem;
+      color: #e7f0f8;
+    }
+
+    .hero-card li {
+      padding-bottom: .8rem;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .hero-card li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .section-heading {
+      margin-bottom: 2.2rem;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: .8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-bottom: .5rem;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      margin-bottom: .8rem;
+    }
+
+    .section-heading p {
+      max-width: 720px;
+      color: var(--muted);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.7rem;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h3 {
+      margin-bottom: .9rem;
+      font-size: 1.2rem;
+    }
+
+    .panel p {
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      border-radius: 14px;
+      background: #eef5fc;
+      padding: 1rem;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--blue);
+      font-size: 1.7rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .88rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .skill-card h3 {
+      margin-bottom: .8rem;
+      color: var(--navy-2);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+    }
+
+    .tag {
+      background: #eef5fc;
+      color: #1c5ea8;
+      border: 1px solid #d6e7f8;
+      padding: .42rem .7rem;
+      border-radius: 999px;
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .job {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+    }
+
+    .job-date {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .job h3 {
+      margin-bottom: .2rem;
+    }
+
+    .job-company {
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: .7rem;
+    }
+
+    .job ul {
+      padding-left: 1.1rem;
+      color: var(--muted);
+    }
+
+    .projects {
+      background: #eaf1f8;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #e8f3ff;
+      font-size: 1.45rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card h3 {
+      margin-bottom: .5rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .project-link {
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .education-awards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.4rem;
+    }
+
+    .list-clean {
+      list-style: none;
+      display: grid;
+      gap: .85rem;
+    }
+
+    .list-clean li {
+      padding-bottom: .8rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .list-clean li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .list-clean strong {
+      display: block;
+    }
+
+    .list-clean span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .contact {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .contact .section-label {
+      color: var(--cyan);
+    }
+
+    .contact .section-heading p {
+      color: #cfdeec;
+      margin: 0 auto;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .9rem;
+      margin-top: 1.7rem;
+    }
+
+    footer {
+      background: #04101e;
+      color: #a9bacb;
+      text-align: center;
+      padding: 1.4rem;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .education-awards {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .project-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .job {
+        grid-template-columns: 1fr;
+        gap: .6rem;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: .85rem 0;
+      }
+
+      .nav-links {
+        gap: .75rem;
+      }
+
+      .hero {
+        padding-top: 5rem;
+      }
+
+      .skills-grid,
+      .project-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 4rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#top">RENZ <span>SANTILLANA</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Computer Science · Navy Veteran</div>
+        <h1>Renz Ryan<br><span>Santillana</span></h1>
+        <p class="hero-copy">
+          Computer Science student at San Diego State University and U.S. Navy veteran with hands-on experience in networked systems, cybersecurity practices, encrypted data relay, technical troubleshooting, and mission-critical operations.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="assets/Renz_Santillana_Resume.pdf" target="_blank">View Resume</a>
+          <a class="btn btn-secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h2>Career Focus</h2>
+        <ul>
+          <li>Software Engineering</li>
+          <li>Government and Defense Technology</li>
+          <li>Cybersecurity and Secure Systems</li>
+          <li>Cloud Computing and Machine Learning</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">About Me</div>
+          <h2>Technical ability backed by mission discipline.</h2>
+          <p>
+            I combine academic computer science training with military and field-service experience. My background has taught me to troubleshoot systematically, communicate clearly, protect sensitive information, and stay dependable under pressure.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel">
+            <h3>Professional Profile</h3>
+            <p>
+              I currently work as a Field Service Technician supporting government clients while completing my Bachelor of Science in Computer Science at San Diego State University. I am interested in software engineering, cybersecurity, cloud systems, data science, and defense technology.
+            </p>
+          </article>
+
+          <article class="panel">
+            <h3>Career Highlights</h3>
+            <div class="stats">
+              <div class="stat"><strong>75+</strong><span>Networked printers supported</span></div>
+              <div class="stat"><strong>50+</strong><span>Radar contacts tracked in real time</span></div>
+              <div class="stat"><strong>10+</strong><span>Junior watchstanders trained</span></div>
+              <div class="stat"><strong>3.5</strong><span>Associate degree GPA</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Technical Skills</div>
+          <h2>Skills and areas of expertise.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Programming</h3>
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">C++</span>
+              <span class="tag">Python</span>
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">Data Structures</span>
+              <span class="tag">Algorithms</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Systems</h3>
+            <div class="tags">
+              <span class="tag">Networking</span>
+              <span class="tag">System Administration</span>
+              <span class="tag">Cloud Computing</span>
+              <span class="tag">Hardware Diagnostics</span>
+              <span class="tag">Troubleshooting</span>
+              <span class="tag">Encryption</span>
+            </div>
+          </article>
+
+          <article class="skill-card">
+            <h3>Security and Data</h3>
+            <div class="tags">
+              <span class="tag">Cybersecurity</span>
+              <span class="tag">Secure Configuration</span>
+              <span class="tag">Data Protection</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Data Science</span>
+              <span class="tag">Information Systems</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Experience</div>
+          <h2>Professional and military experience.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="job">
+            <div class="job-date">Jan 2024 – Present</div>
+            <div>
+              <h3>Field Service Technician</h3>
+              <div class="job-company">Strike Group LLC · San Diego, California</div>
+              <ul>
+                <li>Resolved hardware and software failures on more than 75 networked printers for government clients.</li>
+                <li>Configured secure features including scan-to-email, cloud connectivity, and user authentication.</li>
+                <li>Applied cybersecurity best practices during updates and configuration changes.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="job-date">Oct 2020 – Sep 2023</div>
+            <div>
+              <h3>Operations Specialist</h3>
+              <div class="job-company">United States Navy · San Diego, California</div>
+              <ul>
+                <li>Operated SPY radar and surveillance systems to track more than 50 air and surface contacts in real time.</li>
+                <li>Produced and relayed encrypted mission data across multiple warfare centers.</li>
+                <li>Trained more than 10 junior watchstanders in radar operation, reporting, and communications.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="job-date">Sep 2018 – Oct 2020</div>
+            <div>
+              <h3>Hazmat Technician</h3>
+              <div class="job-company">United States Navy · San Diego, California</div>
+              <ul>
+                <li>Managed hazardous material inventory while maintaining federal labeling, storage, and disposal compliance.</li>
+                <li>Performed preventive and corrective maintenance on mechanical, electrical, and electronic equipment.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <div class="job-date">Mar 2014 – Sep 2018</div>
+            <div>
+              <h3>Airline Customer Service Agent</h3>
+              <div class="job-company">Aviation Port Service / Swissport / Total Airport Services · Chicago, Illinois</div>
+              <ul>
+                <li>Supported approximately 250–320 travelers per shift with documentation, security validation, and issue resolution.</li>
+                <li>Trained new employees on policies, systems, and customer service standards.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Projects</div>
+          <h2>Selected computer science projects.</h2>
+          <p>Replace the placeholder GitHub links below with the URLs of your repositories after you upload each project.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-icon">📅</div>
+            <h3>Adaptive Deadline-Aware Task Sorting</h3>
+            <p>
+              A Python scheduling application that extracts coursework deadlines, calculates priority using urgency and difficulty, and generates a study schedule with a priority queue.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Priority Queue</span>
+              <span class="tag">Algorithms</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">🧭</div>
+            <h3>Maze Escape Using DFS</h3>
+            <p>
+              A recursive C++ maze solver that explores valid paths with depth-first search, tracks visited cells, and reconstructs the final route from start to exit.
+            </p>
+            <div class="tags">
+              <span class="tag">C++</span>
+              <span class="tag">DFS</span>
+              <span class="tag">Recursion</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-icon">🌳</div>
+            <h3>Text-Based RPG with Dynamic Trees</h3>
+            <p>
+              A C++ interactive story project using templates, tree nodes, file parsing, recursive traversal, and player-driven branching decisions.
+            </p>
+            <div class="tags">
+              <span class="tag">C++</span>
+              <span class="tag">Trees</span>
+              <span class="tag">OOP</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Education and Recognition</div>
+          <h2>Education, certifications, and awards.</h2>
+        </div>
+
+        <div class="education-awards">
+          <article class="panel">
+            <h3>Education</h3>
+            <ul class="list-clean">
+              <li>
+                <strong>San Diego State University</strong>
+                <span>Bachelor of Science in Computer Science · Expected 2027</span>
+              </li>
+              <li>
+                <strong>Grossmont-Cuyamaca College</strong>
+                <span>Associate of Science in Computer Science · GPA 3.5 · 2025</span>
+              </li>
+              <li>
+                <strong>Grossmont-Cuyamaca College</strong>
+                <span>Associate of Science in Science and Mathematics · GPA 3.5 · 2025</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="panel">
+            <h3>Certifications and Awards</h3>
+            <ul class="list-clean">
+              <li><strong>Navy and Marine Corps Achievement Medal</strong><span>United States Navy</span></li>
+              <li><strong>Good Conduct Medal</strong><span>United States Navy</span></li>
+              <li><strong>National Defense Service Medal</strong><span>United States Navy</span></li>
+              <li><strong>Certified Security Reaction Force Team Member Advanced</strong><span>United States Navy</span></li>
+              <li><strong>Certified Navy Security Force Sentry</strong><span>United States Navy</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-label">Contact</div>
+          <h2>Let’s connect.</h2>
+          <p>
+            I am interested in software engineering, field technology, cybersecurity, cloud, and government or defense technology opportunities.
+          </p>
+        </div>
+
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:renz_santillana@yahoo.com">Email Me</a>
+          <a class="btn btn-secondary" href="tel:+16193949178">Call Me</a>
+          <a class="btn btn-secondary" href="https://github.com/rsantillana" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-secondary" href="assets/Renz_Santillana_Resume.pdf" target="_blank">Resume PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Renz Ryan Avelino Santillana · Built for GitHub Pages
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
